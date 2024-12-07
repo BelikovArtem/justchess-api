@@ -1,6 +1,4 @@
 .git
 .vscode
-.env 
-./pkg/db/schema.sql
 LICENSE
 Dockerfile

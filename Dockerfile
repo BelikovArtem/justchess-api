@@ -7,6 +7,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -gcflags="all=-N -l" -o /bin/
 
 # First port is listened by API, second port by Delve remove debugger.
 EXPOSE 3502 4502 
-COPY ./.env /bin/api/
-COPY ./pkg/db/schema.sql /bin/api/
+COPY .env /bin/api/
+COPY /pkg/db/schema.sql /bin/api/
 CMD ["/go/bin/dlv", "--listen=:4502", "--headless=true", "--log=true", "--accept-multiclient", "--api-version=2", "exec", "/bin/api/api"]
